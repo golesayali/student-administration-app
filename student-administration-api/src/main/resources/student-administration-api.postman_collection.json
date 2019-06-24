@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "14e772b3-18d6-4ecc-99fd-c97bd56c707e",
+		"name": "student-administration-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sayali\",\n    \"birthDate\": \"22031993\",\n    \"address\": \"Meander 973, 1181WG\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/studentadminapi/v1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"studentadminapi",
+						"v1",
+						"students"
+					]
+				},
+				"description": "Add new student :: submit student name, birth date and address"
+			},
+			"response": []
+		},
+		{
+			"name": "All Student Infromation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/studentadminapi/v1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"studentadminapi",
+						"v1",
+						"students"
+					]
+				},
+				"description": "retrieve all the students information"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Student Info",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sayali\",\n    \"birthDate\": \"22031993\",\n    \"address\": \"Meander 973, 1181WP\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/studentadminapi/v1/students/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"studentadminapi",
+						"v1",
+						"students",
+						"1"
+					]
+				},
+				"description": "edit student information"
+			},
+			"response": []
+		}
+	]
+}
