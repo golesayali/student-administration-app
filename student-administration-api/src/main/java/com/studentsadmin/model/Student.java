@@ -1,5 +1,6 @@
 package com.studentsadmin.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.studentsadmin.auditing.Auditable;
 
 import javax.persistence.*;
@@ -11,12 +12,14 @@ public class Student extends Auditable<String> {
 
     private long id;
     private String name;
+    @Temporal(TemporalType.DATE)
     private Date birthDate;
     private String address;
 
     public Student() {
 
     }
+
     public Student(String name, Date birthDate, String address) {
         this.name = name;
         this.birthDate = birthDate;
@@ -28,6 +31,7 @@ public class Student extends Auditable<String> {
     public long getId() {
         return id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -42,6 +46,7 @@ public class Student extends Auditable<String> {
     }
 
     @Column(name = "birth_date", nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public Date getBirthDate() {
         return birthDate;
     }

@@ -1,31 +1,21 @@
 <h3 *ngIf="!isEdit">Create Student</h3>
 <h3 *ngIf="isEdit">Modify Student Info</h3>
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" method="post">
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="student.name" name="name">
+      <label for="studentName">Name*</label>
+      <input required  type="text" class="form-control" id="studentName" [(ngModel)]="student.name" name="studentName">
+
     </div>
 
     <div class="form-group">
-      <label for="birthDate">Date of Birth</label>
-      <!--<input  id="dateSLM"
-              class="form-control bdate date-field-width"
-              [maxDate]="yesterdayDate"
-              #dp="bsDatepicker"
-              bsDatepicker
-              placement="bottom"
-              [bsValue]="bsValue"
-              [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY',containerClass: 'theme-default',showWeekNumbers: false}"
-              placeholder="dd-mm-yyyy" autocomplete="off">
-      <button id="calendar_img" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen"><img src="assets/graphics/calendar_20.png"></button>
--->
-      <input type="text" class="form-control" id="birthDate" required [(ngModel)]="student.birthDate" name="birthDate">
+      <label for="birthDate">Date of Birth (mm/dd/yyyy) *</label>
+      <input required type="date" class="form-control" id="birthDate" max="{{maxDateBirthDate}}" [(ngModel)]="student.birthDate" name="birthDate">
     </div>
 
     <div class="form-group">
-      <label for="address">Address</label>
-      <input type="text" class="form-control" id="address" required [(ngModel)]="student.address" name="address">
+      <label for="address">Address*</label>
+      <input required type="text" class="form-control" id="address" [(ngModel)]="student.address" name="address">
     </div>
 
     <button type="submit" class="btn btn-success" (click)="onSubmit()" *ngIf="!isEdit" >Submit</button>

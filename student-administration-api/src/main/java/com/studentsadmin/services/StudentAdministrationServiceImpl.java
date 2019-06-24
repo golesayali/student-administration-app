@@ -30,7 +30,7 @@ public class StudentAdministrationServiceImpl implements StudentAdministrationSe
         Student updatedStudent = null;
 
         student = studentRepository.findById(studentId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + studentId));
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + studentId));
         student.setName(studentDetails.getName());
         student.setBirthDate(studentDetails.getBirthDate());
         student.setAddress(studentDetails.getAddress());

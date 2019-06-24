@@ -1,7 +1,7 @@
 export class Student {
   id: number;
   name: string;
-  birthDate: number;
+  birthDate: Date;
   address: string;
   createdBy: String;
   createdDate: String;

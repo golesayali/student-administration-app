@@ -11,9 +11,11 @@ import org.springframework.security.web.access.channel.ChannelProcessingFilter;
  * configuration specific for the security.
  */
 @Configuration
-@EnableWebSecurity public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override protected void configure(HttpSecurity httpSecurity) throws Exception {
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable();
         httpSecurity.addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class);
     }

@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Student} from "../../models/student";
 import {StudentService} from "../../student.service";
 import {Router} from '@angular/router';
-import {MatDatepickerModule} from '@angular/material';
 
 @Component({
   selector: 'app-create-student',
@@ -12,10 +11,10 @@ import {MatDatepickerModule} from '@angular/material';
 export class CreateStudentComponent implements OnInit,OnDestroy {
 
   student: Student = new Student();
-  submitted = false;
+  submitted: boolean = false;
   isEdit: boolean;
   yesterdayDate = new Date();
-
+  maxDateBirthDate = new Date();
   constructor(private studentService: StudentService,
               private router: Router) {
 
@@ -29,7 +28,9 @@ export class CreateStudentComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(){
+    this.studentService.student = null;
     this.isEdit = false;
+    this.submitted = false;
   }
 
   save() {
@@ -41,11 +42,6 @@ export class CreateStudentComponent implements OnInit,OnDestroy {
   onSubmit() {
     this.submitted = true;
     this.save();
-  }
-
-  setYesterdayDate() {
-    this.yesterdayDate = new Date();
-    this.yesterdayDate.setDate(this.yesterdayDate.getDate() - 1);
   }
 
   onEdit() {
